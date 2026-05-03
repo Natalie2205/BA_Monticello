@@ -1,0 +1,13 @@
+@use "vars" as v;
+@use "mixins" as m;
+
+%btn {
+  font-family: v.$montserrat-font-family;
+  @include m.font(0.78rem, 1, 400);  
+  text-transform: uppercase;
+  border: 1px solid v.$main-font-color; 
+  background: none;
+  width: 190px;
+  padding: 16px;
+  cursor: pointer;
+}
