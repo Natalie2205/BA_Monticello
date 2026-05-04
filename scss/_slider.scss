@@ -1,7 +1,8 @@
 @use "vars" as v;
+
 .slider {
   position: relative;
-    overflow: hidden;
+  overflow: hidden;
 
   &__content {
     position: absolute;
@@ -10,8 +11,8 @@
     transform: translate(-50%, -50%);
     z-index: 2;
     text-align: center;
-    color: v.$light-font-color;    
-      }
+    color: v.$light-font-color;
+  }
 
   &-slide {
     position: relative;
@@ -34,7 +35,6 @@
       object-fit: cover;
       width: 100%;
       height: 100%;
-    
     }
   }
 }
@@ -68,7 +68,7 @@
     width: 10px;
     height: 10px;
     padding: 0;
-    border-radius: 50%;    
+    border-radius: 50%;
     cursor: pointer;
   }
 }
@@ -107,4 +107,99 @@
   &::before {
     content: ">";
   }
+}
+
+// /--------------------- slider2 ---------------------------
+.slider_2 {
+  max-width: v.$container-width;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 15px;
+  
+
+  .slick-dots {
+    flex-direction: row;
+    right: 50%;
+    bottom: -50px;
+    transform: translate(50%, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 40px;
+    position: absolute;
+
+    z-index: 3;
+
+    @media screen and (max-width: 576px){
+      gap: 15px;
+      bottom: -30px;
+    }
+
+    li {
+      &.slick-active {
+        button {
+          background-color: #fff;
+        }
+      }
+    }
+
+    button {
+      font-size: 0;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background-color: transparent;
+    }
+  }
+
+  .slick-arrow {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    z-index: 3;
+    font-size: 0;
+    background-color: transparent;
+
+    &::before {
+      content: "<";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+
+  .slick-prev {
+    left: -80px;
+
+    @media screen and (max-width: 1600px) {
+      left: -40px;
+    }
+  }
+
+  .slick-next {
+    right: -80px;
+    left: auto;
+
+    @media screen and (max-width: 1600px) {
+      right: -40px;
+    }
+
+    &::before {
+      content: ">";
+    }
+  }
+}
+
+.slide_2 {
+  height: 100%;
 }
