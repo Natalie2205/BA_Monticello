@@ -2,6 +2,7 @@
 @use "mixins" as m;
 @use "extends";
 @use "slider";
+@use "keyframes";
 
 * {
   padding: 0;
@@ -29,9 +30,9 @@ body {
   font-family: v.$open-sans-font-family;
   font-size: v.$main-font-size;
   color: v.$main-font-color;
-  // min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
 .container {
@@ -78,14 +79,17 @@ body {
 
   @media screen and (max-width: 768px) {
     position: absolute;
-    right: -100%;
     top: 110px;
+    left: 0;
     opacity: 0;
     flex-direction: column;
     background-color: v.$color-blue;
-    transition: all 0.5s;
+    transition:
+      transform 0.5s ease,
+      opacity 0.5s ease;
     width: 100%;
     gap: 0;
+    transform: translateX(100%);
   }
 
   &__item {
@@ -137,7 +141,7 @@ body {
   @media screen and (max-width: 768px) {
     &:checked ~ .menu {
       opacity: 1;
-      right: 0;
+      transform: translateX(0);
     }
 
     &:checked ~ .burger__img {
@@ -190,7 +194,7 @@ body {
   margin-left: 6.8vw;
 
   @media screen and (max-width: 992px) {
-    margin-left: 20px;
+    margin-left: 15px;
   }
 
   @media screen and (max-width: 510px) {
@@ -251,6 +255,7 @@ body {
   font-size: 0;
   z-index: 3;
   cursor: pointer;
+  animation: bounce 2s infinite;
 
   &::after {
     content: "";
@@ -291,8 +296,17 @@ body {
   padding-top: 130px;
   padding-bottom: 150px;
 
+  @media screen and (max-width: 992px) {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+
   &_container {
     max-width: 1600px;
+
+    @media screen and (max-width: 1600px) {
+      padding: 0 30px;
+    }
   }
 
   &_box {
@@ -311,15 +325,36 @@ body {
 
     &_img {
       height: 470px;
+      width: 630px;
       background-color: v.$color-blue;
-
+      position: relative;
+      
       @media screen and (max-width: 1200px) {
-        height: 350px;        
+        height: 350px;
       }
 
       @media screen and (max-width: 992px) {
         height: auto;
+        width: 100%;
         background: transparent;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 2;
+        transition: all 0.8s ease-in-out;
+
+        @media screen and (max-width: 992px) {
+          position: static;
+          transform: none !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+        }
       }
     }
 
@@ -333,6 +368,10 @@ body {
 
       @media screen and (max-width: 992px) {
         padding-top: 20px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: 100%;
       }
     }
 
@@ -372,9 +411,44 @@ body {
 
       & .projects_box_img {
         background-color: v.$color-violet;
+        right: 0;
 
-        @media screen and (max-width: 992px){
+        @media screen and (max-width: 992px) {
           background: transparent;
+        }
+      }
+
+      &.appear img {
+        top: 57px;
+        right: 215px;
+
+        @media screen and (max-width: 1600px) {
+          top: 30px;
+          right: 100px;
+        }
+
+        @media screen and (max-width: 1200px) {
+          top: 20px;
+          right: 80px;
+        }
+      }
+    }
+    &:not(.projects_box_rev) {
+      .projects_box_img img {
+        left: 0;
+      }
+      &.appear .projects_box_img img {
+        top: 57px;
+        left: 215px;
+
+        @media screen and (max-width: 1600px) {
+          top: 30px;
+          left: 100px;
+        }
+
+        @media screen and (max-width: 1200px) {
+          top: 20px;
+          left: 80px;
         }
       }
     }
