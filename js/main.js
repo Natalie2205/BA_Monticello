@@ -76,3 +76,26 @@ $(document).ready(function () {
     $(this).hide();
   });
 });
+
+
+$(document).ready(function () {
+  $(".gal_btn").on("click", function () {
+    
+    const newPhotos = `
+            <a href="./assets/img/gal_6.webp" class="gal_item"><img src="./assets/img/gal_6.webp" alt="gal_img"></a>
+            <a href="./assets/img/gal_7.webp" class="gal_item"><img src="./assets/img/gal_7.webp" alt="gal_img"></a>
+            <a href="./assets/img/gal_10.webp" class="gal_item gal_item_col-2 gal_item_row-2"><img src="./assets/img/gal_10.webp" alt="gal_img"></a>
+            <a href="./assets/img/gal_8.webp" class="gal_item"><img src="./assets/img/gal_8.webp" alt="gal_img"></a>
+            <a href="./assets/img/gal_9.webp" class="gal_item"><img src="./assets/img/gal_9.webp" alt="gal_img"></a>
+            
+        `;
+    $(".gallery").append(newPhotos);
+   
+    $(this).fadeOut();
+  });
+});
+
+
+
+
+
