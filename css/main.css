@@ -62,6 +62,15 @@
   right: 33px;
   transform: translateY(-50%);
 }
+@media screen and (max-width: 768px) {
+  .slick-dots {
+    flex-direction: row;
+    bottom: 0;
+    left: 0;
+    transform: translateY(60%);
+    gap: 25px;
+  }
+}
 .slick-dots li.slick-active button {
   background-color: #fff;
 }
