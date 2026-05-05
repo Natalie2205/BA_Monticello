@@ -875,7 +875,7 @@ body {
   color: #fff;
   padding-top: 203px;
   padding-bottom: 234px;
-  background: url(../assets/img/footer_bg.webp);
+  background: url(../assets/img/footer_bg.webp) center/cover no-repeat;
 }
 @media screen and (max-width: 992px) {
   .footer {
