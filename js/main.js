@@ -96,6 +96,65 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function () {
+  $("#form").on("submit", function (e) {
+    // 1. Зупиняємо стандартну відправку форми
+    e.preventDefault();
+
+    // 2. Отримуємо значення полів
+    const nameInput = $(this).find('input[name="name"]');
+    const emailInput = $(this).find('input[name="email"]');
+    const nameValue = nameInput.val().trim();
+    const emailValue = emailInput.val().trim();
+
+    // 3. Проста регулярна перевірка для Email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    let isValid = true;
+
+    // Валідація імені
+    if (nameValue.length < 2) {
+      nameInput.css("border-bottom", "1px solid red");
+      isValid = false;
+    } else {
+      nameInput.css("border-bottom", "1px solid #2c4058");
+    }
+
+    // Валідація Email
+    if (!emailPattern.test(emailValue)) {
+      emailInput.css("border-bottom", "1px solid red");
+      isValid = false;
+    } else {
+      emailInput.css("border-bottom", "1px solid #2c4058");
+    }
+
+    // 4. Якщо все вірно
+    if (isValid) {
+      const btn = $("#btn_submit");
+      const originalText = btn.text();
+
+      // Імітація відправки
+      btn.text("SENDING...").prop("disabled", true);
+
+      setTimeout(() => {
+        alert("Дякуємо! Форму успішно відправлено.");
+
+        // Очищення форми
+        $("#form")[0].reset();
+        btn.text(originalText).prop("disabled", false);
+
+        // Скидаємо стилі (повертаємо opacity через CSS класи)
+        $(".form_input").css("border-bottom", "");
+      }, 1500);
+    }
+  });
+
+  // Очищення червоної лінії при введенні тексту
+  $(".form_input").on("input", function () {
+    $(this).css("border-bottom", "1px solid #2c4058");
+  });
+});
+
 
 
 

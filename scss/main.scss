@@ -50,8 +50,13 @@ body {
   width: 100%;
   position: absolute;
   z-index: 2;
-}
 
+  & .social {
+    @media screen and (max-width: 510px) {
+    display: none;
+  }
+}
+}
 .logo {
   height: 54px;
 }
@@ -197,10 +202,7 @@ body {
     margin-left: 15px;
   }
 
-  @media screen and (max-width: 510px) {
-    display: none;
-  }
-
+  
   &__link {
     @include m.flex(center, center);
     width: 40px;
@@ -631,7 +633,6 @@ body {
   &_item:not(:last-child) {
     margin-bottom: 28px;
   }
-
 }
 .form {
   @include m.flex(center, flex-end);
@@ -640,7 +641,6 @@ body {
   @media screen and (max-width: 800px) {
     margin-top: 42px;
   }
-  
 
   @media screen and (max-width: 420px) {
     align-items: center;
@@ -654,7 +654,6 @@ body {
     padding-bottom: 14px;
     outline: none;
     margin-bottom: 30px;
-    
 
     @media screen and (max-width: 420px) {
       max-width: 90vw;
@@ -672,3 +671,53 @@ body {
   }
 }
 
+.footer {
+  color: #fff;
+  padding-top: 203px;
+  padding-bottom: 234px;
+  background: url(../assets/img/footer_bg.webp);
+
+  @media screen and (max-width: 992px) {
+    background: url(../assets/img/footer_bg_tab.webp) center / cover no-repeat;
+    padding-bottom: 70px;
+    padding-top: 250px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-top: 550px;
+  }
+
+  @media screen and (max-width: 576px) {
+    background: url(../assets/img/footer_bg_mob.webp) center / cover no-repeat;
+  }
+
+  &_container {
+    max-width: 770px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 760px) {
+      padding: 0 15px;
+    }
+
+    @media screen and (max-width: 480px) {
+      align-items: center;
+    }
+
+    & .flex-container {
+      @media screen and (max-width: 480px) {
+        flex-direction: column-reverse;
+        gap: 40px;
+      }
+    }
+  }
+
+  &_text {
+    font-family: v.$montserrat-font-family;
+    font-size: 0.78rem;
+    margin-top: 41px;
+
+    @media screen and (max-width: 480px) {
+      text-align: center;
+    }
+  }
+}
