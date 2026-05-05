@@ -11,8 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">    
-    
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -287,7 +287,7 @@
                 <div class="gallery">
                     <a href="./assets/img/gal_1.webp" class="gal_item gal_item_row-2 gal_item_col-2">
                         <img src="./assets/img/gal_1.webp" alt="gal_img">
-                    </a>                    
+                    </a>
                     <a href="./assets/img/gal_2.webp" class="gal_item">
                         <img src="./assets/img/gal_2.webp" alt="gal_img">
                     </a>
@@ -305,11 +305,47 @@
             </div>
         </section>
         <div id="map" class="map"></div>
+        <section id="contacts" class="contacts">
+            <div class="contacts_box">
+                <h4 class="title title_4 section_title">GET IN TOUCH</h4>
+                <div class="contacts_wrapper">
+                    <ul class="contacts_list">
+                        <li class="contacts_item">
+                            <img src="./assets/img/map_pin.png" alt="map-pin" class="contacts_icon">
+                            <p>91 Nolan Extensions Suite 670</p>
+                        </li>
+                        <li class="contacts_item">
+                            <img src="./assets/img/phone.png" alt="phone">
+                            <p>+0013568682454</p>
+                        </li>
+                        <li class="contacts_item">
+                            <img src="./assets/img/email.png" alt="email">
+                            <p>montichello@service.com</p>
+                        </li>
+                        <li class="contacts_item">
+                            <img src="./assets/img/clock.png" alt="time">
+                            <p>From 07:05AM to 19:30PM</p>
+                        </li>
+                    </ul>
+                    <form class="form" id="form" method="get">
+                        <label>
+                            <input type="text" class="form_input" required name="name" placeholder="Name">
+                        </label>
+                        <label>
+                            <input type="email" class="form_input" required name="email" placeholder="Email">
+                        </label>
+                        <button id="btn_submit" class="form_btn" type="submit">
+                            SUBMIT
+                        </button>
+                    </form>
+                </div>
+            </div>
 
+        </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./js/slick-slider.js"></script>    
+    <script src="./js/slick-slider.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/map.js"></script>
     <script async

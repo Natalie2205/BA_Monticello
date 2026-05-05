@@ -10,4 +10,10 @@
   width: 190px;
   padding: 16px;
   cursor: pointer;
+
+  &:hover {
+    border-color: v.$color-blue;
+    color: #fff;
+    background-color: v.$color-blue;
+  }
 }
