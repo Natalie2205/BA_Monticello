@@ -1,36 +1,239 @@
-const lat = 40.7459;
-const lng = -74.0048;
+function initMap() {
+    const center = new google.maps.LatLng(48.85834989093622, 2.2944941489363146);
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 16,
+        center: center,        
+        styles: 
+[
+  {
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#ebe3cd",
+      },
+    ],
+  },
+  {
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#523735",
+      },
+    ],
+  },
+  {
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        color: "#f5f1e6",
+      },
+    ],
+  },
+  {
+    featureType: "administrative",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#c9b2a6",
+      },
+    ],
+  },
+  {
+    featureType: "administrative.land_parcel",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#dcd2be",
+      },
+    ],
+  },
+  {
+    featureType: "administrative.land_parcel",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#ae9e90",
+      },
+    ],
+  },
+  {
+    featureType: "landscape.natural",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#dfd2ae",
+      },
+    ],
+  },
+  {
+    featureType: "poi",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#dfd2ae",
+      },
+    ],
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#93817c",
+      },
+    ],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "geometry.fill",
+    stylers: [
+      {
+        color: "#a5b076",
+      },
+    ],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#447530",
+      },
+    ],
+  },
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#f5f1e6",
+      },
+    ],
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#fdfcf8",
+      },
+    ],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#f8c967",
+      },
+    ],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#e9bc62",
+      },
+    ],
+  },
+  {
+    featureType: "road.highway.controlled_access",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#e98d58",
+      },
+    ],
+  },
+  {
+    featureType: "road.highway.controlled_access",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#db8555",
+      },
+    ],
+  },
+  {
+    featureType: "road.local",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#806b63",
+      },
+    ],
+  },
+  {
+    featureType: "transit.line",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#dfd2ae",
+      },
+    ],
+  },
+  {
+    featureType: "transit.line",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#8f7d77",
+      },
+    ],
+  },
+  {
+    featureType: "transit.line",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        color: "#ebe3cd",
+      },
+    ],
+  },
+  {
+    featureType: "transit.station",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#dfd2ae",
+      },
+    ],
+  },
+  {
+    featureType: "water",
+    elementType: "geometry.fill",
+    stylers: [
+      {
+        color: "#b9d3c2",
+      },
+    ],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#92998d",
+      },
+    ],
+  },
+        ]
+      });
 
-// Ініціалізує карту Leaflet із вибраною локацією.
-const map = L.map("map", {
-  scrollWheelZoom: false,
-}).setView([lat, lng], 19);
+    const imgMarker = './assets/img/pin.png';
+    const positionMarker = new google.maps.LatLng(48.85834989093622, 2.2944941489363146);
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-  attribution: "&copy; OpenStreetMap",
-}).addTo(map);
+    new google.maps.Marker({
+        icon: imgMarker,
+        map: map,
+        opacity: 0.7,
+        position: positionMarker,
+        title: "My Home!",
+    })
+};
 
-const redPinIcon = L.icon({
-  iconUrl: "./assets/icons/pin.svg",
-  iconSize: [106, 106],
-  iconAnchor: [70, 106],
-  popupAnchor: [0, -106],
-});
 
-const popupContent = `
-<div style="font-family: sans-serif; line-height: 1.4; color: #333;">
-    <h3 style="margin: 0 0 5px; font-weight: bold;">High Line Park</h3>
-    <p style="margin: 0; font-size: 13px;">New York, NY 10011</p>
-    <p style="margin: 0; font-size: 13px;">+001 356 868 2454</p>
-</div>
-`;
+window.initMap = initMap;
 
-const marker = L.marker([lat, lng], { icon: redPinIcon }).addTo(map);
 
-marker
-  .bindPopup(popupContent, {
-    className: "custom-popup",
-    maxWidth: 250,
-    minWidth: 200,
-  })
-  .openPopup();
